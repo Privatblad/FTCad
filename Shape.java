@@ -1,7 +1,3 @@
-/**
- *
- * @author brom
- */
 
 package DCAD;
 
@@ -9,7 +5,7 @@ final class Shape {
     private String type;
 
     private Shape(String type) {
-        this.type = type;
+	this.type = type;
     }
 
     @Override

@@ -1,7 +1,3 @@
-/**
- *
- * @author brom
- */
 
 package DCAD;
 
@@ -9,11 +5,7 @@ package DCAD;
 import java.awt.Color;
 import java.awt.Graphics;
 
-/**
- *
- * @author brom
- */
-public class  GObject {
+public class GObject {
     private Shape s;
     private Color c;
     private int x,y,width,height;
@@ -22,8 +14,8 @@ public class  GObject {
     // of the GUI window.
 
     public GObject(Shape s, Color c, int x, int y, int width, int height) {
-        this.s = s; this.c = c; this.x = x; this.y = y;
-        this.width = width; this.height = height;
+	this.s = s; this.c = c; this.x = x; this.y = y;
+	this.width = width; this.height = height;
     }
 
     public void setShape(Shape s) {this.s = s;}
@@ -36,38 +28,38 @@ public class  GObject {
     public int getY() {return y;}
 
     public void draw(Graphics g) {
-        g.setColor(c);
-        int drawX = x, drawY = y, drawWidth = width, drawHeight = height;
+	g.setColor(c);
+	int drawX = x, drawY = y, drawWidth = width, drawHeight = height;
 
-        // Convert coordinates and dimensions if objects are not drawn from top left corner to
-        // bottom right.
-        if(width < 0) {
-            drawX = x + width;
-            drawWidth = -width;
-        }
+	// Convert coordinates and dimensions if objects are not drawn from top left corner to
+	// bottom right.
+	if(width < 0) {
+	    drawX = x + width;
+	    drawWidth = -width;
+	}
 
-        if(height < 0) {
-            drawY = y + height;
-            drawHeight = -height;
-        }
+	if(height < 0) {
+	    drawY = y + height;
+	    drawHeight = -height;
+	}
 
-        // Use string comparison to allow comparison of shapes even if the objects
-        // have different nodes of origin
+	// Use string comparison to allow comparison of shapes even if the objects
+	// have different nodes of origin
 
-        if(s.toString().compareTo(Shape.OVAL.toString()) == 0) {
-            g.drawOval(drawX, drawY, drawWidth, drawHeight);
-        }
-        else if(s.toString().compareTo(Shape.RECTANGLE.toString()) == 0) {
-            g.drawRect(drawX, drawY, drawWidth, drawHeight);
-        }
-        else if(s.toString().compareTo(Shape.LINE.toString()) == 0) {
-            g.drawLine(x, y, x + width, y + height);
-        }
-        else if(s.toString().compareTo(Shape.FILLED_RECTANGLE.toString()) == 0) {
-            g.fillRect(drawX, drawY, drawWidth, drawHeight);
-        }
-        else if(s.toString().compareTo(Shape.FILLED_OVAL.toString()) == 0) {
-            g.fillOval(drawX, drawY, drawWidth, drawHeight);
-        }
+	if(s.toString().compareTo(Shape.OVAL.toString()) == 0) {
+	    g.drawOval(drawX, drawY, drawWidth, drawHeight);
+	}
+	else if(s.toString().compareTo(Shape.RECTANGLE.toString()) == 0) {
+	    g.drawRect(drawX, drawY, drawWidth, drawHeight);
+	}
+	else if(s.toString().compareTo(Shape.LINE.toString()) == 0) {
+	    g.drawLine(x, y, x + width, y + height);
+	}
+	else if(s.toString().compareTo(Shape.FILLED_RECTANGLE.toString()) == 0) {
+	    g.fillRect(drawX, drawY, drawWidth, drawHeight);
+	}
+	else if(s.toString().compareTo(Shape.FILLED_OVAL.toString()) == 0) {
+	    g.fillOval(drawX, drawY, drawWidth, drawHeight);
+	}
     }
 }
