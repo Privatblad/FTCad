@@ -1,7 +1,8 @@
-
 package DCAD;
 
-final class Shape {
+import java.io.Serializable;
+
+final class Shape implements Serializable {
     private String type;
 
     private Shape(String type) {
